@@ -23,12 +23,8 @@ class AdminPage {
     return cy.get(".page-header__subtitle");
   }
 
-  getMovieList() {
-    return cy.get(".conf-step__movies");
-  }
-
-  getMovie() {
-    return cy.get(".conf-step__movie-title");
+  getMovieSeance() {
+    return cy.get(".conf-step__seances-movie-title");
   }
 }
 

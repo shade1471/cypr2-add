@@ -30,6 +30,10 @@ class ClientPage {
   getQrCode() {
     return cy.get(".ticket__info-qr");
   }
+
+  getFirstSeanceByName(name) {
+    cy.get(".movie").contains(name).parent().parent().next().click("left");
+  }
 }
 
 export default ClientPage;

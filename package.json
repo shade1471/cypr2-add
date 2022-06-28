@@ -4,9 +4,11 @@
   "description": "HW cypress 2",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "testMobile": "cypress run --env viewportWidth=390,viewportHeight=844",
-    "testHeaded": "cypress open",
+    "testMovie": "cypress run",
+    "testApi": "cypress run --config-file cypressApi.config.js",
+    "testMovieMobile": "cypress run --env viewportWidth=390,viewportHeight=844",
+    "testMovieHeaded": "cypress open",
+    "testApiHeaded": "cypress open --config-file cypressApi.config.js",
     "testHeadedMobile": "cypress open --env viewportWidth=390,viewportHeight=844"
   },
   "author": "Andrey Gribanov",

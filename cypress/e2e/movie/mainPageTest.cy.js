@@ -1,7 +1,7 @@
 //const admPage = require("../fixtures/adminPage.json");
 //const clientPage = require("../fixtures/clientPage.json");
-import AdminPage from "../support/PageObjects/AdminPage";
-import ClientPage from "../support/PageObjects/ClientPage";
+import AdminPage from "../../support/PageObjects/AdminPage";
+import ClientPage from "../../support/PageObjects/ClientPage";
 
 const admPage = new AdminPage();
 const clientPage = new ClientPage();

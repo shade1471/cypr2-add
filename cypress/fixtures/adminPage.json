@@ -1,8 +1,0 @@
-{
-    "email" : "[type=email]",
-    "password": "[type=password]",
-    "logInButton": ".login__button",
-    "hallControl": "#hall-control",
-    "gridSession": "#grid-session",
-    "header": ".page-header__subtitle"
-}

@@ -1,5 +1,5 @@
-const user = require("../fixtures/user.json");
-import AdminPage from "../support/PageObjects/AdminPage";
+const user = require("../../fixtures/user.json");
+import AdminPage from "../../support/PageObjects/AdminPage";
 
 const admPage = new AdminPage();
 
@@ -11,7 +11,7 @@ beforeEach(() => {
 
 describe("Login to admin part of service", () => {
   user.forEach((us) => {
-    it.only(`Should check auth for ${us.description} user`, () => {
+    it(`Should check auth for ${us.description} user`, () => {
       cy.login(us.data.login, us.data.password);
       if (us.description === "valid") {
         admPage.getHallContol().should("be.visible");

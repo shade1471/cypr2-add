@@ -1,5 +1,5 @@
-const body = require("../fixtures/userBody.json");
-const updateBody = require("../fixtures/updatedUserBody.json");
+const body = require("../../fixtures/userBody.json");
+const updateBody = require("../../fixtures/updatedUserBody.json");
 
 beforeEach(() => {});
 describe("Petstore API test", () => {
@@ -9,9 +9,12 @@ describe("Petstore API test", () => {
     });
   });
 
-  it("Should Get info about user by name", () => {
+  it.only("Should Get info about user by name", () => {
     cy.getUser(body.username).should((response) => {
-      expect(response.status).eq(200);
+      if (response.status === 404) {
+        cy.addUser(body);
+      }
+      expect(response.status).to.eq(200);
       expect(response.body).to.have.property("lastName", body.lastName);
       expect(response.body).to.have.property("email", body.email);
       expect(response.body.id).to.equal(body.id);
@@ -50,7 +53,7 @@ describe("Petstore API test", () => {
     });
   });
 
-  // it("Should delete all", () => {
+  // it.only("Should delete all", () => {
   //   cy.deleteUser(body.username);
   //   cy.deleteUser(updateBody.username);
   // });
