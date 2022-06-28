@@ -1,4 +1,5 @@
 const user = require("../fixtures/user.json");
+
 //import cypress from "cypress";
 //const admPage = require("../fixtures/adminPage.json");
 //const hall = require("../fixtures/hall.json");
@@ -17,24 +18,55 @@ beforeEach(() => {
   cy.login(user[0].data.login, user[0].data.password);
 });
 
-it("Should check that movie exist", () => {
-  admPage
-    .getMovie()
-    .eq(1)
-    .then(($movie) => {
-      let movieName = $movie.text();
-      cy.visit("/client");
-      clientPage.getNavDayTomorrow().click();
-      cy.get(".movie")
-        .contains(movieName)
-        .parent()
-        .parent()
-        .next()
-        .click("left");
-      cy.selectSeats(2, 1, 2, 3);
-      clientPage.getOrderButton().click();
-      cy.contains("Вы выбрали билеты:").should("be.visible");
+describe("Should check that movie exist", () => {
+  admPage.getMovie().array.forEach((el) => {
+    it("movie test", () => {
+      cy.get(conf - step__movie - title).then(($movie) => {
+        let movieName = $movie.text();
+        cy.visit("/client");
+        clientPage.getNavDayTomorrow().click();
+        cy.get(".movie")
+          .contains(movieName)
+          .parent()
+          .parent()
+          .next()
+          .click("left");
+        cy.selectSeats(2, 1, 2, 3);
+        clientPage.getOrderButton().click();
+        cy.contains("Вы выбрали билеты:").should("be.visible");
+      });
     });
+  });
+
+  //   let movieName = $element.text();
+  //   cy.visit("/client");
+  //   clientPage.getNavDayTomorrow().click();
+  //   cy.get(".movie")
+  //     .contains(movieName)
+  //     .parent()
+  //     .parent()
+  //     .next()
+  //     .click("left");
+  //   cy.selectSeats(2, 1, 2, 3);
+  //   clientPage.getOrderButton().click();
+  //   cy.contains("Вы выбрали билеты:").should("be.visible");
+  // })
+
+  //     });
+  //     .then(($movie) => {
+  //       let movieName = $movie.text();
+  //       cy.visit("/client");
+  //       clientPage.getNavDayTomorrow().click();
+  //       cy.get(".movie")
+  //         .contains(movieName)
+  //         .parent()
+  //         .parent()
+  //         .next()
+  //         .click("left");
+  //       cy.selectSeats(2, 1, 2, 3);
+  //       clientPage.getOrderButton().click();
+  //       cy.contains("Вы выбрали билеты:").should("be.visible");
+  //     });
 
   // cy.log($movie.text());
 
