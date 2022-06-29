@@ -22,7 +22,7 @@ it("Should order tickets for exist movie", () => {
       //Бронь фильма по найденному названию
       cy.visit("/client");
       clientPage.getNavDayTomorrow().click();
-      clientPage.getFirstSeanceByName($title.text());
+      clientPage.checkFirstSeanceByName($title.text());
       cy.selectSeats(3, 1, 2, 3);
       clientPage.getOrderButton().click();
       cy.contains("Вы выбрали билеты:").should("be.visible");

@@ -31,7 +31,7 @@ class ClientPage {
     return cy.get(".ticket__info-qr");
   }
 
-  getFirstSeanceByName(name) {
+  checkFirstSeanceByName(name) {
     cy.get(".movie").contains(name).parent().parent().next().click("left");
   }
 }

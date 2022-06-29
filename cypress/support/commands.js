@@ -36,7 +36,9 @@ Cypress.Commands.add("apiLogIn", (body) => {
 });
 
 Cypress.Commands.add("deleteUser", (userName) => {
-  cy.request("DELETE", `/user/${userName}`);
+  cy.request("DELETE", `/user/${userName}`).should((response) => {
+    expect(response.status).to.eq(200);
+  });
 });
 
 Cypress.Commands.add("getUser", (userName) => {
@@ -47,5 +49,23 @@ Cypress.Commands.add("getUser", (userName) => {
 });
 
 Cypress.Commands.add("updateUser", (userName, body) => {
-  cy.request("PUT", `/user/${userName}`, body);
+  cy.request("PUT", `/user/${userName}`, body).should((response) => {
+    expect(response.status).eq(200);
+  });
+});
+
+Cypress.Commands.add("addNotExistUser", (body) => {
+  cy.getUser(body.username).should((response) => {
+    if (response.status === 404) {
+      cy.addUser(body);
+    }
+  });
+});
+
+Cypress.Commands.add("deleteExistUser", (body) => {
+  cy.getUser(body.username).should((response) => {
+    if (response.status === 200) {
+      cy.deleteUser(body.username);
+    }
+  });
 });

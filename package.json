@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "testMovie": "cypress run",
+    "testMovieCloud": "cypress run --record --key 676d1569-c00c-4bb3-af1c-188ba595e9fc",
     "testApi": "cypress run --config-file cypressApi.config.js",
+    "testApiCloud": "cypress run --config-file cypressApi.config.js --record --key a3566fd6-0973-4224-9764-00e4d276e51f",
     "testMovieMobile": "cypress run --env viewportWidth=390,viewportHeight=844",
     "testMovieHeaded": "cypress open",
     "testApiHeaded": "cypress open --config-file cypressApi.config.js",

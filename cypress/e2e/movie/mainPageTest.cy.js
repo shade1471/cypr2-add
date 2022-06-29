@@ -1,5 +1,3 @@
-//const admPage = require("../fixtures/adminPage.json");
-//const clientPage = require("../fixtures/clientPage.json");
 import AdminPage from "../../support/PageObjects/AdminPage";
 import ClientPage from "../../support/PageObjects/ClientPage";
 
