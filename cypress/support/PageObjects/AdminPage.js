@@ -26,6 +26,10 @@ class AdminPage {
   getMovieSeance() {
     return cy.get(".conf-step__seances-movie-title");
   }
+
+  getMovieArr() {
+    return cy.get(".conf-step__movie-title");
+  }
 }
 
 export default AdminPage;
